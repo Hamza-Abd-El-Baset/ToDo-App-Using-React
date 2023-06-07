@@ -9,24 +9,26 @@ const Items =(props)=>{
         items.map(item=>{
         return(
             <div key={item.id} className="item">
-                <span>{item.title}</span>
-                <span>{item.description}</span>
-                <span onClick={()=>deleteItem(item.id)}>&times;</span>
+                <span className="title">{item.title}</span>
+                <span className="description">{item.description}</span>
+                <span className="action delete" onClick={()=>deleteItem(item.id)}>&times;</span>
             </div>
         )
     })
     ): (
-        <p>There are no taks yet</p>
+        <p>There are no tasks now</p>
     )
     return(
-        <div>
-            <div>
-                <span>Title</span>
-                <span>Description</span>
-                <span>Delete</span>
+        <div className="list">
+            <div className="listHeader">
+                <span className="title listHead">Title</span>
+                <span className="description listHead">Description</span>
+                <span className="action listHead">Action</span>
+            </div>
+            <div className="listItems">
+            {ListItems}
             </div>
             
-            {ListItems}
 
         </div>
     )

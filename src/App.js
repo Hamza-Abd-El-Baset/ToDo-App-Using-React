@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import './App.css';
+
 import AddItem from './components/AddItem/AddItem';
 import Items from './components/Items/Items';
 
@@ -23,8 +23,15 @@ class App extends Component {
 
   addItem=(item)=>{
     let items=this.state.items
+    let Length=items.length
+    if(Length==0)
+    {
+      item.id=1
+    }
+    else{
+      item.id=parseInt(items[Length-1].id)+1
+    }
     
-    item.id=parseInt(items[items.length-1].id)+1
     console.log(item)
 
     items.push(item)
@@ -33,8 +40,8 @@ class App extends Component {
 
   render(){
     return (
-      <div className="App">
-        <h2>To-do List</h2>
+      <div className="App container">
+        <h1 className="text-center">To-do List</h1>
         <Items items={this.state.items} deleteItem={this.deleteItem}/>
         <AddItem addItem={this.addItem}/>
       </div>

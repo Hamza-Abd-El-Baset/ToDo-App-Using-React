@@ -21,23 +21,27 @@ class AddItem extends Component{
 
     handleSubmit=(event)=>{
         event.preventDefault();
-        this.props.addItem(this.state)
-        this.setState(
-            {
-                title:"",
-                description:"",
-            }
-        )
 
+        if(this.state.title!==""&&this.state.description!=="")
+        {
+            this.props.addItem(this.state)
+            this.setState(
+                {
+                    title:"",
+                    description:"",
+                }
+            )
+        }
+        
     }
 
     render(){
         return(
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <input type="text" name="title" value={this.state.title} placeholder="Title" onChange={this.handleChange}/>
-                    <input type="text" name="description" value={this.state.description} placeholder="Description" onChange={this.handleChange}/>
-                    <input type="submit" value="Add Task"/>
+                    <input type="text" name="title" className="title" value={this.state.title} placeholder="Enter Title" onChange={this.handleChange}/>
+                    <input type="text" name="description" className="description" value={this.state.description} placeholder="Enter Description" onChange={this.handleChange}/>
+                    <input type="submit" className="action" value="Add Task"/>
                 </form>
             </div>
         )
