@@ -21,12 +21,22 @@ class App extends Component {
     this.setState({items})
   }
 
+  addItem=(item)=>{
+    let items=this.state.items
+    
+    item.id=parseInt(items[items.length-1].id)+1
+    console.log(item)
+
+    items.push(item)
+    this.setState({items})
+  }
+
   render(){
     return (
       <div className="App">
         <h2>To-do List</h2>
         <Items items={this.state.items} deleteItem={this.deleteItem}/>
-        <AddItem/>
+        <AddItem addItem={this.addItem}/>
       </div>
     );
   }
