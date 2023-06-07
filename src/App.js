@@ -24,7 +24,7 @@ class App extends Component {
   addItem=(item)=>{
     let items=this.state.items
     let Length=items.length
-    if(Length==0)
+    if(Length===0)
     {
       item.id=1
     }
