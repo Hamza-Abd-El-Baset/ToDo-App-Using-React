@@ -1,5 +1,4 @@
 import React from "react";
-import "./Items.css";
 
 const Items =(props)=>{
 
