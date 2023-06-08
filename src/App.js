@@ -8,10 +8,7 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state={
-      items:[{id:"1",title:"Writing Cv", description:"Writing CV on word"},
-             {id:"2",title:"Washing Dishes", description:"Washing all dishes"},
-             {id:"3",title:"Cleaning Floors", description:"Cleaning appartment floors"},
-            ]
+      items:[]
     }
   }
 
